@@ -19,7 +19,7 @@ export class MetadataService {
         return this.db.getData(`/${fileId}`);
     }
 
-    getAll() {
+    getAll(){
         return this.db.getData('/');
     }
 }

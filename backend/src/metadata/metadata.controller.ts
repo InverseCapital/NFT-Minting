@@ -1,5 +1,5 @@
-import { Body, Controller, Get, HttpException, Param, Post } from '@nestjs/common';
-import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { Body, Controller, Get, HttpException, Param, Post, Query } from '@nestjs/common';
+import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { MetadataDTO } from 'src/dtos/metadata.dto';
 import { MetadataService } from './metadata.service';
 
@@ -7,10 +7,33 @@ import { MetadataService } from './metadata.service';
 export class MetadataController {
     constructor(private readonly metadataService: MetadataService) { }
 
-    @Get('/:fileId')
+    @Get('/all')
     @ApiOperation({
-        summary: 'Hello world',
-        description: 'Returns hello world',
+        summary: 'Returns all the metadata from the database',
+        description: 'Returns all the metadata from the database',
+    })
+    @ApiResponse({
+        status: 200,
+        description: 'Hello world',
+    })
+    @ApiResponse({
+        status: 503,
+        description: 'The server is not configured correctly',
+        type: HttpException,
+    })
+    getAll() {
+        try {
+            return this.metadataService.getAll();
+        } catch {
+            throw new HttpException('Record not found', 404);
+        }
+    }
+
+
+    @Get('id/:fileId')
+    @ApiOperation({
+        summary: 'Returns metadata by fileId',
+        description: 'Returns metadata by fileId',
     })
     @ApiResponse({
         status: 200,
@@ -30,11 +53,11 @@ export class MetadataController {
             throw new HttpException('Record not found', 404);
         }
     }
-
+    @ApiBody({description: '{"metadata": {"name": "Antonio","image": "http://img.png","description": "desc"}}'})
     @Post('/:fileId')
     @ApiOperation({
-        summary: 'Hello world',
-        description: 'Returns hello world',
+        summary: 'Write a new record by FileId',
+        description: 'Write a new record by FileId',
     })
     @ApiResponse({
         status: 200,
