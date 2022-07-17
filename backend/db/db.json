@@ -1,4 +1,9 @@
 {
+  "0": {
+      "name": "Pharaoh Angelica",
+      "image": "https://ipfs.io/ipfs/QmbsjNTdp73sA5YrvNZmbejYqNgBVPFTmuKJ3iRwQb3wie?filename=10.png",
+      "description": "A three-year-old tyrant in training, Tommy’s cousin Angelica has the advantage of being able to talk both to grown-ups and to the babies. She manipulates her parents, shows off for strangers and mercilessly bullies Tommy’s friends. When she comes over, the Rugrats run for cover as they know she will terrorize them with “true” stories from her imagination and force them to sit through her off-key, lyrically mangled musical numbers. Beneath her cold, hard exterior beats the heart of a true spoiled brat. But however cleverly devilish her schemes, somehow Angelica always seems to get what she deserves."
+  },
   "1": {
       "name": "Downtown as Fruits Rhonda",
       "image": "https://ipfs.io/ipfs/QmaGWuvh3XWwRaF5JhY1CLGjgnardHPGgr8GX6kWtpdeed?filename=1.png",
@@ -43,10 +48,5 @@
       "name": "Doctor Susie",
       "image": "https://ipfs.io/ipfs/QmRkEjf7nn8FvUpy1eRWZnUwiNMs1V71vnf7XYcyjmeTdA?filename=9.png",
       "description": "Tommy and the Rugrats look up to their friend Susie Carmichael, who possesses the kind of wisdom you can only get from experience. After all, she’s three. Susie is the child of an overachieving mother (French chef, airline pilot and doctor) and a cartoon-writing dad (of the famous “Dummi Bears” series). Susie is energetic, optimistic and quick to offer friendly advice and reassurance to a distressed Rugrat. Susie stands up for what’s right – which often puts her right in Angelica’s way."
-  },
-  "10": {
-      "name": "Pharaoh Angelica",
-      "image": "https://ipfs.io/ipfs/QmbsjNTdp73sA5YrvNZmbejYqNgBVPFTmuKJ3iRwQb3wie?filename=10.png",
-      "description": "A three-year-old tyrant in training, Tommy’s cousin Angelica has the advantage of being able to talk both to grown-ups and to the babies. She manipulates her parents, shows off for strangers and mercilessly bullies Tommy’s friends. When she comes over, the Rugrats run for cover as they know she will terrorize them with “true” stories from her imagination and force them to sit through her off-key, lyrically mangled musical numbers. Beneath her cold, hard exterior beats the heart of a true spoiled brat. But however cleverly devilish her schemes, somehow Angelica always seems to get what she deserves."
   }
 }
