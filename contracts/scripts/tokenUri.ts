@@ -7,12 +7,9 @@ async function main() {
 
   const myNTFContract = getNFTContract(accounts[0]);
 
-  const items = await myNTFContract.getItems();
+  const uri = await myNTFContract.tokenURI(0);
 
-  console.log(
-    "Items: ",
-    items.map((item) => item.toNumber())
-  );
+  console.log(uri);
 }
 
 main().catch((error) => {

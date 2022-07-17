@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 import { getNFTContract } from "../utils/contracts";
 import "dotenv/config";
 
-const METADATA_BASE_URI = "http://localhost:3000/";
+const METADATA_BASE_URI = "http://localhost:3000/metadata/";
 
 async function main() {
   const accounts = await ethers.getSigners();
@@ -21,11 +21,10 @@ async function main() {
   }
 
   const items = await myNTFContract.getItems();
-  console.log(items);
-  // console.log(
-  //   "Minted token ids: ",
-  //   ids.map((id) => id.toNumber())
-  // );
+  console.log(
+    "Minted token ids: ",
+    items.map((item) => item.toNumber())
+  );
 }
 
 main().catch((error) => {

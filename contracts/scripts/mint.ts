@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 import { getNFTContract } from "../utils/contracts";
 import "dotenv/config";
 
-const METADATA_BASE_URI = "http://localhost:3000/";
+const METADATA_BASE_URI = "http://localhost:3000/metadata/";
 
 async function main() {
   const accounts = await ethers.getSigners();
