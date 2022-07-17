@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract NFTCollection is ERC721URIStorage {
   using Counters for Counters.Counter;
@@ -12,7 +13,9 @@ contract NFTCollection is ERC721URIStorage {
 
   function create(string memory baseTokenURI) public returns (uint256) {
     uint256 newItemId = _tokenIds.current();
-    string memory tokenURI = string(abi.encodePacked(baseTokenURI, newItemId));
+    string memory tokenURI = string(
+      abi.encodePacked(baseTokenURI, Strings.toString(newItemId))
+    );
 
     _mint(msg.sender, newItemId);
     _setTokenURI(newItemId, tokenURI);
@@ -28,7 +31,7 @@ contract NFTCollection is ERC721URIStorage {
     uint256[] memory ids = new uint256[](itemCount);
 
     for (uint256 i = 0; i < itemCount; i++) {
-      ids[i] = i + 1;
+      ids[i] = i;
     }
 
     return ids;
