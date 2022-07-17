@@ -18,11 +18,11 @@ async function main() {
   }
 
   // Deploying Contract
-  const ballotContract = await deployContract("NFTCollection");
+  const nftContract = await deployContract("NFTCollection");
 
   console.log(
-    "Deployed CustomBallot contract at address: ",
-    ballotContract.address
+    "Deployed NFTCollection contract at address: ",
+    nftContract.address
   );
 }
 

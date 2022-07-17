@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "hardhat test",
+    "deploy:local": "yarn hardhat run ./scripts/deploy.ts --network localhost",
+    "deploy:ropsten": "yarn hardhat run ./scripts/deploy.ts --network ropsten",
+    "compile": "yarn hardhat compile",
+    "chain": "yarn hardhat node",
+    "setup": "yarn hardhat run ./scripts/setup.ts --network localhost"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +31,7 @@
     "@types/chai": "^4.2.0",
     "@types/mocha": "^9.1.0",
     "@types/node": ">=12.0.0",
+    "dotenv": "^16.0.1",
     "ethers": "^5.4.7",
     "hardhat-gas-reporter": "^1.0.8",
     "solidity-coverage": "^0.7.21",
