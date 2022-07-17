@@ -1,16 +1,20 @@
-import { Contract, ContractInterface } from "ethers";
+import {
+  Contract,
+  ContractInterface,
+  getDefaultProvider,
+  Signer,
+} from "ethers";
 import { ethers } from "hardhat";
 
-import { getProvider } from "./providers";
-import { NFTCollection } from "../typechain-types/contracts/ERC721.sol/NFTCollection";
-import * as nftJson from "../artifacts/contracts/ERC721.sol/NFTCollection.json";
+import { NFTCollection } from "../typechain-types/contracts/NFTCollection";
+import * as nftJson from "../artifacts/contracts/NFTCollection.sol/NFTCollection.json";
 
 export function getContract<T extends Contract>(
   address: string,
   abi: ContractInterface,
   withSigner = true
 ) {
-  const provider = getProvider();
+  const provider = getDefaultProvider();
 
   const wallet = new ethers.Wallet(process.env.PRIVATE_KEY || "");
   const signer = wallet.connect(provider);
@@ -18,15 +22,18 @@ export function getContract<T extends Contract>(
   return new Contract(address, abi, withSigner ? signer : provider) as T;
 }
 
-export function getNFTContract(withSigner = true) {
-  return getContract<NFTCollection>(
-    process.env.BALLOT_CONTRACT_ADDRESS || "",
+export function getNFTContract(signer?: Signer) {
+  return new Contract(
+    process.env.NFT_CONTRACT_ADDRESS || "",
     nftJson.abi,
-    withSigner
-  );
+    signer
+  ) as NFTCollection;
 }
 
-export async function deployContract(contractName: string, ...args: unknown[]) {
+export async function deployContract<T extends Contract>(
+  contractName: string,
+  ...args: unknown[]
+) {
   // Get contract factory
   const contractFactory = await ethers.getContractFactory(contractName);
 
@@ -34,5 +41,5 @@ export async function deployContract(contractName: string, ...args: unknown[]) {
   const contract = await contractFactory.deploy(...args);
   await contract.deployed();
 
-  return contract;
+  return contract as T;
 }

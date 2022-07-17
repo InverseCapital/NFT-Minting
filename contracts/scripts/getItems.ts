@@ -1,17 +1,19 @@
-import { ethers } from "hardhat";
 import { getNFTContract } from "../utils/contracts";
 import "dotenv/config";
-
-const METADATA_BASE_URI = "http://localhost:3000/";
+import { ethers } from "hardhat";
 
 async function main() {
   const accounts = await ethers.getSigners();
+
   const myNTFContract = getNFTContract(accounts[0]);
 
-  const mintTx = await myNTFContract.create(METADATA_BASE_URI);
+  const items = await myNTFContract.getItems();
 
-  await mintTx.wait();
-  console.log("Mint transaction hash: ", mintTx.hash);
+  console.log(items);
+  console.log(
+    "Items: ",
+    items.map((item) => item.toNumber())
+  );
 }
 
 main().catch((error) => {
